@@ -8,6 +8,9 @@ public class DiverStoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DiverStoreApplication.class, args);
+
+
+		System.out.println("Hello in DiverStore App");
 	}
 
 }
