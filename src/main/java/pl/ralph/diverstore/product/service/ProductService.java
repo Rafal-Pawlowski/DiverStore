@@ -14,16 +14,23 @@ public class ProductService {
     }
 
     public List<Product> findAllProducts() {
-        return null;
+        List<Product>products = List.of(new Product("Maska", 200.00),
+                new Product("Pianka neoprenowa", 500.00),
+                new Product("Automat oddechowy", 2040.00));
+
+        return products;
     }
 
     public Product getSingleProduct(UUID id) {
-        return null;
+        Product product = new Product("Swimming pants", 15.09);
+        return product;
 
     }
 
-    public Product updateProduct(UUID id, Product product) {
-        return null;
+    public Product updateProduct(UUID id, Product productRequest) {
+        Product product = new Product("Before update", 100.00);
+        product.setName("product updated");
+        return product;
     }
 
     public void deleteProduct(UUID id) {
