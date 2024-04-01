@@ -2,7 +2,7 @@ package pl.ralph.diverstore.category.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.ralph.diverstore.category.model.Category;
+import pl.ralph.diverstore.category.domain.model.Category;
 import pl.ralph.diverstore.category.service.CategoryService;
 
 import java.util.List;
@@ -43,13 +43,13 @@ public class CategoryApiController {
     @GetMapping
     @ResponseStatus(HttpStatus.FOUND)
     public List<Category> getCategories(){
-        return categoryService.findAll();
+        return categoryService.getCategories();
     }
 
     @GetMapping("{id}")
     @ResponseStatus(HttpStatus.FOUND)
     public Category getCategory(@PathVariable UUID id){
-        return categoryService.findById(id);
+        return categoryService.getCategory(id);
     }
 
     @PutMapping("{id}")

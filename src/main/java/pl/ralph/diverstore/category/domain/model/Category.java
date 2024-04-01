@@ -1,19 +1,19 @@
-package pl.ralph.diverstore.producer.model;
+package pl.ralph.diverstore.category.domain.model;
 
 import java.util.UUID;
 
-public class Producer {
+public class Category {
 
     private UUID id;
 
     private String name;
 
-
-    public Producer() {
+    public Category() {
     }
 
-    public Producer(String name) {
+    public Category(String name) {
         this.name = name;
+        this.id=UUID.randomUUID();
     }
 
     public UUID getId() {
@@ -34,7 +34,7 @@ public class Producer {
 
     @Override
     public String toString() {
-        return "Producer{" +
+        return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

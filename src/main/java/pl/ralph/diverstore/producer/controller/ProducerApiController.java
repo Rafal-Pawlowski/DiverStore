@@ -2,7 +2,7 @@ package pl.ralph.diverstore.producer.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.ralph.diverstore.producer.model.Producer;
+import pl.ralph.diverstore.producer.domain.model.Producer;
 import pl.ralph.diverstore.producer.service.ProducerService;
 
 import java.util.List;

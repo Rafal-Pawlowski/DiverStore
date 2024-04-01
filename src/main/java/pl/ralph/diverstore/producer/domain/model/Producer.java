@@ -1,21 +1,20 @@
-package pl.ralph.diverstore.product.model;
+package pl.ralph.diverstore.producer.domain.model;
 
 import java.util.UUID;
 
-public class Product {
+public class Producer {
 
     private UUID id;
 
     private String name;
 
-    private double price;
 
-    public Product() {
+    public Producer() {
     }
 
-    public Product(String name, double price) {
+    public Producer(String name) {
         this.name = name;
-        this.price = price;
+        this.id=UUID.randomUUID();
     }
 
     public UUID getId() {
@@ -34,20 +33,11 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     @Override
     public String toString() {
-        return "Product{" +
+        return "Producer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", price=" + price +
                 '}';
     }
 }

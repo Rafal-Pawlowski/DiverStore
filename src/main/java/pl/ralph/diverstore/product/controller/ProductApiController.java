@@ -2,7 +2,7 @@ package pl.ralph.diverstore.product.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.ralph.diverstore.product.model.Product;
+import pl.ralph.diverstore.product.domain.model.Product;
 import pl.ralph.diverstore.product.service.ProductService;
 
 import java.util.List;

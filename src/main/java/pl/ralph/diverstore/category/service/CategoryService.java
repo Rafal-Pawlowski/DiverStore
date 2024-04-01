@@ -1,7 +1,7 @@
 package pl.ralph.diverstore.category.service;
 
 import org.springframework.stereotype.Service;
-import pl.ralph.diverstore.category.model.Category;
+import pl.ralph.diverstore.category.domain.model.Category;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,26 +11,24 @@ public class CategoryService {
 
 
     public Category createCategory(Category category) {
-        category = new Category("new Category");
+        category.setId(UUID.randomUUID());
 
 
         return category;
     }
 
-    public List<Category> findAll() {
+    public List<Category> getCategories() {
         List<Category> categories =List.of(new Category("Category1"), new Category("Category2"), new Category("Category3"));
         return categories;
     }
 
-    public Category findById(UUID id) {
-        Category category = new Category("SingleCategory");
-
-        return category;
+    public Category getCategory(UUID id) {
+        return new Category("SingleCategory" + id);
     }
 
-    public Category updateCategory(UUID id, Category category) {
-   category = new Category("updated Category");
-
+    public Category updateCategory(UUID id, Category categoryRequest) {
+   Category category = new Category("Before update Category");
+category.setName(categoryRequest.getName());
         return category;
 
     }

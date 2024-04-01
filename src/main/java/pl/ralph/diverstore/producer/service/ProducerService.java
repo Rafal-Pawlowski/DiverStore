@@ -1,7 +1,7 @@
 package pl.ralph.diverstore.producer.service;
 
 import org.springframework.stereotype.Service;
-import pl.ralph.diverstore.producer.model.Producer;
+import pl.ralph.diverstore.producer.domain.model.Producer;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,17 +11,20 @@ public class ProducerService {
 
 
     public Producer createProducer(Producer producer) {
-        return null;
+        producer.setId(UUID.randomUUID());
+        return producer;
     }
 
     public List<Producer> getProducers() {
-        List<Producer> producers = List.of(new Producer("Producer 1"), new Producer("Producer 2"), new Producer("Producer 3"));
+        List<Producer> producers = List.of(new Producer("Producer 1"),
+                new Producer("Producer 2"),
+                new Producer("Producer 3"));
         return producers;
     }
 
     public Producer getSingleProducer(UUID id) {
-        Producer producer = new Producer("Single producer");
-        return producer;
+        return new Producer("Single producer" + id);
+
     }
 
     public Producer updateProducer(UUID id, Producer producerRequest) {
