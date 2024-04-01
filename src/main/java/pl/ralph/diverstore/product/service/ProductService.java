@@ -21,12 +21,12 @@ public class ProductService {
         return products;
     }
 
-    public Product getSingleProduct(UUID id) {
+    public Product getSingleProduct(UUID id, UUID productId) {
         return new Product("Swimming pants" + id, 15.09);
 
     }
 
-    public Product updateProduct(UUID id, Product productRequest) {
+    public Product updateProduct(UUID id, UUID productId, Product productRequest) {
         Product product = new Product("Before update", 100.00);
         product.setName(productRequest.getName());
         return product;

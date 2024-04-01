@@ -36,32 +36,32 @@ public class CategoryApiController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Category addCategory(Category category){
+    public Category addCategory(@RequestBody Category category){
         return categoryService.createCategory(category);
     }
 
     @GetMapping
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.ACCEPTED)
     public List<Category> getCategories(){
         return categoryService.getCategories();
     }
 
-    @GetMapping("{id}")
-    @ResponseStatus(HttpStatus.FOUND)
-    public Category getCategory(@PathVariable UUID id){
-        return categoryService.getCategory(id);
-    }
-
-    @PutMapping("{id}")
+    @GetMapping("{category-id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Category updateCategory(@PathVariable UUID id, Category category){
-        return categoryService.updateCategory(id, category);
+    public Category getCategory(@PathVariable("{category-id}") UUID categoryId){
+        return categoryService.getCategory(categoryId);
     }
 
-    @DeleteMapping("{id}")
+    @PutMapping("{category-id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Category updateCategory(@PathVariable("{category-id}") UUID categoryId,@RequestBody Category categoryRequest){
+        return categoryService.updateCategory(categoryId, categoryRequest);
+    }
+
+    @DeleteMapping("{category-id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteCategory(@PathVariable UUID id){
-        categoryService.deleteCategory(id);
+    public void deleteCategory(@PathVariable("{category-id}") UUID categoryId){
+        categoryService.deleteCategory(categoryId);
     }
 
 

@@ -20,25 +20,25 @@ public class ProducerApiController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public Producer addProducer(Producer producer){
+    @ResponseStatus(HttpStatus.CREATED)
+    public Producer addProducer(@RequestBody Producer producer){
         return producerService.createProducer(producer);
     }
 
     @GetMapping
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.ACCEPTED)
     public List<Producer> getProducers(){
         return producerService.getProducers();
     }
-    @GetMapping("{id}")
-    @ResponseStatus(HttpStatus.FOUND)
-    public Producer getProducer(@PathVariable UUID id){
+    @GetMapping("{producer-id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public Producer getProducer(@PathVariable("producer-id") UUID id){
         return producerService.getSingleProducer(id);
     }
 
-    @PutMapping("{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public Producer updateProducer(@PathVariable UUID id, Producer producer){
+    @PutMapping("{producer-id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Producer updateProducer(@PathVariable("producer-id") UUID id, @RequestBody Producer producer){
         return producerService.updateProducer(id, producer);
     }
 

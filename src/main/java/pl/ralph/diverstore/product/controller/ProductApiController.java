@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("products")
+@RequestMapping("api/v1/producers/{producer-id}/products")
 public class ProductApiController {
 
 
@@ -20,36 +20,39 @@ public class ProductApiController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public Product addProduct(Product product) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public Product addProduct(@PathVariable("producer-id") UUID id,
+                              @RequestBody Product product) {
         return productService.createProduct(product);
     }
 
     @GetMapping
-    @ResponseStatus(HttpStatus.FOUND)
-    public List<Product> getProducts() {
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public List<Product> getProducts(@PathVariable("producer-id") UUID id) {
         return productService.findAllProducts();
     }
 
-    @GetMapping("{id}")
-    @ResponseStatus(HttpStatus.FOUND)
-    public Product getProduct(@PathVariable UUID id) {
-        return productService.getSingleProduct(id);
-    }
-
-    @PutMapping("{id}")
+    @GetMapping("{product-id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Product updateProduct(@PathVariable UUID id, Product product){
-        return productService.updateProduct(id, product);
+    public Product getProduct(@PathVariable("producer-id") UUID producerId,
+                              @PathVariable("product-id") UUID productId) {
+        return productService.getSingleProduct(producerId, productId);
     }
 
-    @DeleteMapping("{id}")
+    @PutMapping("{product-id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Product updateProduct(@PathVariable("producer-id") UUID producerId,
+                                 @PathVariable("product-id") UUID productId,
+                                 @RequestBody Product product) {
+        return productService.updateProduct(producerId, productId, product);
+    }
+
+    @DeleteMapping("{product-id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteProduct(@PathVariable UUID id){
-        productService.deleteProduct(id);
+    public void deleteProduct(@PathVariable("producer-id") UUID producerId,
+                              @PathVariable("product-id") UUID productId) {
+        productService.deleteProduct(productId);
     }
-
-
 
 
 }
