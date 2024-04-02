@@ -1,1 +1,12 @@
+pl\ralph\diverstore\category\domain\model\Category.class
+pl\ralph\diverstore\product\service\ProductService.class
+pl\ralph\diverstore\producer\service\ProducerService.class
+pl\ralph\diverstore\producer\controller\ProducerApiController.class
 pl\ralph\diverstore\DiverStoreApplication.class
+pl\ralph\diverstore\category\controller\CategoryViewController.class
+pl\ralph\diverstore\producer\domain\model\Producer.class
+pl\ralph\diverstore\category\controller\CategoryApiController.class
+pl\ralph\diverstore\DiveStoreConfiguration.class
+pl\ralph\diverstore\category\service\CategoryService.class
+pl\ralph\diverstore\product\domain\model\Product.class
+pl\ralph\diverstore\product\controller\ProductApiController.class
