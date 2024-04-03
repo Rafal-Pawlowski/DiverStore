@@ -5,15 +5,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/categories")
 public class CategoryViewController {
 
 
 
-    @GetMapping
+    @GetMapping("index")
     public String indexView(){
         return "category/index";
     }
 
+    @GetMapping("categories")
+    public String categoriesView(){
+        return "category/list";
+    }
 
 }
